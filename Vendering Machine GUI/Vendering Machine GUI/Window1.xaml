@@ -1,0 +1,42 @@
+﻿<Window x:Class="Vendering_Machine_GUI.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vendering_Machine_GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="700"
+        Background="black"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition  Height="45"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.ColumnSpan="2" Background="#252525" MouseDown="Border_MouseDown">
+            <Grid HorizontalAlignment="Stretch">
+                <Label  Content="Vending Machine"
+                        Foreground="Gray"
+                        FontSize="20"
+                        Margin="270 0 0 0"
+                        FontWeight="SemiBold"/>
+            </Grid>
+        </Border>
+        <StackPanel Grid.Row="1">
+            <Label Margin="50 50 0 0 " HorizontalAlignment="Left" Content="Your Orderd : " FontSize="40" Foreground="white"/>
+            <Label Margin="50 20 3 0" HorizontalAlignment="Left" Content="The Price is :  " FontSize="40" Foreground="white" Width="234"/>
+
+            <TextBox x:Name="textBox1InSecondary" FontSize="30" Foreground="white" BorderThickness="0" Margin=" 160 -164 50 50" TextWrapping="Wrap" Text="" Width="190" Height="34" Background="Black" TextChanged="textBox1InSecondary_TextChanged"/>
+            <TextBox x:Name="textBox2InSecondary" FontSize="30"  Foreground="white"  BorderThickness="0" Margin=" 160 -44 50 50" TextWrapping="Wrap" Text="" Width="190" Height="34" Background="Black"/>
+
+            
+
+        </StackPanel>
+
+    </Grid>
+</Window>
