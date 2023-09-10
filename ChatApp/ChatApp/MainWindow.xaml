@@ -1,0 +1,410 @@
+﻿<Window x:Class="ChatApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:ChatApp" xmlns:viewmodel="clr-namespace:ChatApp.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="650" Width="800"
+        Background="#36393f"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="35"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="2" Background="#252525" MouseDown="Border_MouseDown">
+            <Grid HorizontalAlignment="Stretch">
+                <Label  Content="Telegram"
+                        Foreground="Gray"
+                        FontSize="18"
+                        FontWeight="SemiBold"/>
+                <StackPanel HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="—"
+                            Background="Transparent"
+                            Foreground="white"
+                            BorderThickness="0"
+                            FontSize="22"
+                            FontWeight="bold"
+                            Margin="0 0 13 0"
+                            Click="ButtonMinimize_Click"/>
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="⬜"
+                            Background="Transparent"
+                            Foreground="blue"
+                            BorderThickness="0"
+                            FontSize="22"
+                            FontWeight="bold"
+                            Margin="0 0 13 0"
+                            Click="ButtonMaximize_Click"/>
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="❌"
+                            Background="Transparent"
+                            Foreground="Red"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Click="ButtonClose_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Background="#2f3136"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+                <RowDefinition Height="0"/>
+            </Grid.RowDefinitions>
+            <Label Content="☰"  
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"
+                   Background="Transparent"
+                   BorderBrush="#181818"
+                   BorderThickness="0"
+                   Margin="6,0,0,0" 
+                   RenderTransformOrigin="4.461,0.411"
+                   Foreground="Gray"
+                   FontSize="22"
+                   FontWeight="bold"/>
+            <Border  Width="240" 
+                     Height="40" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center"
+                     Background="Transparent" 
+                     Grid.Row="0"
+                     BorderBrush="#181818"
+                     BorderThickness="1"
+                     CornerRadius="17"
+                     Margin="30 0 0 0"
+                    >
+
+                <TextBox Background="Transparent"
+                         BorderThickness="0"
+                         Margin="10,0,-1,0"
+                         Padding="-5 8 0 0 "
+                         Foreground="white"
+                         FontSize="15"
+                         FontWeight="SemiBold"
+                         Text="🔍  Search">
+
+
+                </TextBox>
+            </Border>
+
+            <StackPanel Grid.Row="1" 
+                        Margin="0,27,15,348">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,100,15,302">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Mohamed"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="What did You Do Yesterday?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="03:20 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,165,15,199">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,230,15,159">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,290,15,95">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,350,15,60">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                        Margin="0,410,15,77" Grid.RowSpan="2">
+                <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="11"
+                            Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" 
+                Margin="0,468,15,19">
+                <Border CornerRadius="25"
+                    Width="40"
+                    Height="40"
+                    Background="#3bff"
+                    Margin="-230 2 0 0 "/>
+                <Label  Content="Hussein"
+                    Foreground="white"
+                    FontWeight="SemiBold"
+                    FontSize="14"
+                    Margin="50 -43 0 -8"
+                            />
+                <Label  Content="Hello My Bro, How Is Your Day?"
+                    Foreground="Gray"
+                    FontWeight="SemiBold"
+                    FontSize="11"
+                    Margin="50 -19 0 -8"/>
+                <Label  Content="08:59 AM"
+                    Foreground="Gray"
+                    FontWeight="SemiBold"
+                    FontSize="11"
+                    Margin="50 -60 -180 -8" Width="61" Height="28"/>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Width="490">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="70"/>
+                <RowDefinition />
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1">
+                <Label Content="Hello My Friend"
+                       FontSize="20"
+                       Background="#FF5A5757" Width="165"
+                       HorizontalAlignment="Left"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+                <Label Content="Good, Bro, How are You?"
+                       FontSize="20"
+                       Background="#7e6dd1" Width="230"
+                       HorizontalAlignment="Right"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+                <Label Content="How was Your Day ?"
+                       FontSize="20"
+                       Background="#FF5A5757" Width="194"
+                       HorizontalAlignment="Left"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+                <Label Content="It was So Good"
+                       FontSize="20"
+                       Background="#7e6dd1" Width="146"
+                       HorizontalAlignment="Right"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+                <Label Content="How about your brother"
+                       FontSize="20"
+                       Background="#FF5A5757" Width="236"
+                       HorizontalAlignment="Left"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+                <Label Content="Acually he is sick"
+                       FontSize="20"
+                       Background="#7e6dd1" Width="162"
+                       HorizontalAlignment="Right"
+                       BorderThickness="0"
+                       Foreground="white"
+                       Margin="20"/>
+            </StackPanel>
+            <Border BorderBrush="#2f3136"
+                    BorderThickness="0 0 0 3">
+                <Grid HorizontalAlignment="Stretch"
+                      Margin="8">
+                    <StackPanel Grid.Row="0">
+                        <Border CornerRadius="25"
+                        Width="40"
+                        Height="40"
+                        Background="#3bff"
+                        Margin="-420 2 0 0 "/>
+                        <Label  Content="Hussein"
+                            Foreground="white"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                         Margin="50 -43 0 -8" Width="420"
+                            />
+                        <Label  Content="Last Seen Jul 31 at 04:55 AM"
+                            Foreground="Gray"
+                            FontWeight="SemiBold"
+                            FontSize="13"
+                            Margin="50 -19 0 -8"/>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border  Width="470" 
+                     Height="40" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center"
+                     Background="Transparent" 
+                     Grid.Row="2"
+                     BorderBrush="#181818"
+                     BorderThickness="1"
+                     CornerRadius="17">
+
+                <TextBox Background="Transparent"
+                         BorderThickness="0"
+                         Margin="22,0,-1,0"
+                         Padding="-5 8 0 0 "
+                         Foreground="white"
+                         FontSize="15"
+                         FontWeight="SemiBold"
+                         Text="☺  Message                                                                              📁">
+
+
+                </TextBox>
+            </Border>
+
+
+
+
+        </Grid>
+    </Grid>
+</Window>
