@@ -1,0 +1,742 @@
+﻿<Window x:Class="NoteLock.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteLock"
+        mc:Ignorable="d"
+        Title="HomePage" 
+        Height="780" Width="1300"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#0f0f2d" 
+        >
+    <Grid>
+
+        
+        <!--Laying Out-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+
+        
+        
+        <!--The Header Grid-->
+        <Grid Background="#181735" Grid.ColumnSpan="3" MouseDown="Grid_MouseDownn" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+
+                <Label Content="Modern School"
+                       Foreground="Gray"
+                       FontSize="25"
+                       FontWeight="SemiBold" Margin="597,0,-187,0"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="—"
+                            Background="Transparent"
+                            Foreground="white"
+                            BorderThickness="0"
+                            FontSize="22"
+                            FontWeight="bold"
+                            Margin="0 0 13 0"
+                            Click="ButtonMinimize_Click"/>
+
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="❌"
+                            Background="Transparent"
+                            Foreground="Red"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Click="ButtonClose_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+
+
+        <!--All Buttons And Pictures-->
+        <Grid Grid.Row="1" Background="#181735" Grid.ColumnSpan="3" Margin="-1,0,0,0">
+            
+            <!--Welcome-->
+            <Button Content="" 
+                    HorizontalAlignment="Left" 
+                    Margin="530,-18,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="285" 
+                    Height="196"
+                    IsEnabled="False"
+                    Foreground="white"
+                    FontSize="35"
+                    BorderThickness="0"
+                    x:Name="Welcome" 
+                    RenderTransformOrigin="0.407,-0.56">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\welcome.png"
+                                Stretch="Uniform"
+                                AlignmentX="Center"
+                                AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Height="200"
+                                CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Students Text-->
+            <Button 
+                 Content="Students" 
+                 HorizontalAlignment="Left" 
+                 Margin="110,373,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="222" 
+                 Height="82"
+                 
+                 FontSize="35"
+                 BorderThickness="0"
+                 x:Name="StudentsText" 
+                 Click="StudentsTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#FFFF0983"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                                 Height="60"
+                                 CornerRadius="15"
+                                 Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Teachers Text-->
+            <Button 
+                Content="Teachers" 
+                HorizontalAlignment="Left" 
+                Margin="546,379,0,0" 
+                VerticalAlignment="Top" 
+                Width="204" 
+                Height="62"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="TeachersText" 
+                Click="TeachersTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#f0057a"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                            Height="60"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Attentance Text-->
+            <Button 
+                Content="Attentance" 
+                HorizontalAlignment="Left" 
+                Margin="965,383,0,0" 
+                VerticalAlignment="Top" 
+                Width="213" 
+                Height="62"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="AttentanceText" 
+                Click="AttentanceTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#f0057a"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                            Height="60"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Events Text-->
+            <Button 
+                Content="Events" 
+                HorizontalAlignment="Left" 
+                Margin="108,664,0,0" 
+                VerticalAlignment="Top" 
+                Width="229" 
+                Height="62"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="EventText" 
+                Click="EventTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#f0057a"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                            Height="60"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Fees Text-->
+            <Button 
+                Content="Fees" 
+                HorizontalAlignment="Left" 
+                Margin="538,664,0,0" 
+                VerticalAlignment="Top" 
+                Width="228" 
+                Height="62"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="FeesText" 
+                Click="FeesTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#f0057a"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                            Height="60"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Dahboard Text-->
+            <Button 
+                Content="Dashboard" 
+                HorizontalAlignment="Left" 
+                Margin="967,658,0,0" 
+                VerticalAlignment="Top" 
+                Width="209" 
+                Height="62"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="DashboardText" 
+                Click="DashboardTextbtn"
+                 >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Foreground" Value="white"/>
+
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                                <Setter Property="Foreground" Value="#f0057a"/>
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="215"
+                            Height="60"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--Students Picture-->
+            <Button     Content="" 
+                        HorizontalAlignment="Left" 
+                        Margin="124,208,0,0" 
+                        VerticalAlignment="Top" 
+                        Width="190" 
+                        Height="178"
+                        Foreground="white"
+                        FontSize="35"
+                        BorderThickness="0"
+                        x:Name="StudentsPicture" 
+                        Click="StudentsPicturebtn"
+                        RenderTransformOrigin="0.407,-0.56">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\students.png"
+                                Stretch="Uniform"
+                                AlignmentX="Center"
+                                AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Teachers Picture-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="564,206,0,0" 
+                VerticalAlignment="Top" 
+                Width="190" 
+                Height="178"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="TeachersPicture" 
+                Click="TeachersPicturebtn" 
+                RenderTransformOrigin="0.407,-0.56">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Teachers.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Attentance Picture-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="964,208,0,0" 
+                VerticalAlignment="Top" 
+                Width="190" 
+                Height="178"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="AttentancePicture" 
+                Click="AttentancePicturebtn"
+                RenderTransformOrigin="0.407,-0.56">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Attantance.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Events Picture-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="124,483,0,0" 
+                VerticalAlignment="Top" 
+                Width="190" 
+                Height="178"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="EventPicture" 
+                Click="EventPicturebtn"
+                RenderTransformOrigin="0.407,-0.56">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Events.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Fees Picture-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="190" 
+                Height="178"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="FeesPicture" 
+                Click="FeesPicturebtn"
+                RenderTransformOrigin="0.407,-0.56" 
+                Margin="564,479,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Fees.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Dahboard Picture-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="970,483,0,0" 
+                VerticalAlignment="Top" 
+                Width="190" 
+                Height="178"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="DashboardPicture" 
+                Click="DashboardPicturebtn"
+                RenderTransformOrigin="0.407,-0.56"
+                      >
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Dashboard.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="200"
+                            Height="150"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--Log Out-->
+            <Button Content="" 
+                    HorizontalAlignment="Left" 
+                    Margin="5,8,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="68" 
+                    Height="55"
+                    Foreground="white"
+                    FontSize="35"
+                    BorderThickness="0"
+                    x:Name="CloseApp"
+                    Click="CloseAppbtn">
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\Logout.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="90"
+                            Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Settings-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="71,6,0,0" 
+                VerticalAlignment="Top" 
+                Width="74" 
+                Height="55"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="Settings"
+                Click="Settingsbtn"
+                      >
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\settings.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="90"
+                            Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!--Profile-->
+            <Button  Content="" 
+                HorizontalAlignment="Left" 
+                Margin="137,6,0,0" 
+                VerticalAlignment="Top" 
+                Width="76" 
+                Height="55"
+                Foreground="white"
+                FontSize="35"
+                BorderThickness="0"
+                x:Name="Profile"
+                Click="Profilebtn"
+                      >
+                <Button.Background>
+                    <ImageBrush ImageSource="G:\Projects\Projects in C#\Secure Note Manager\Code\NoteLock\NoteLock\images\profile.png"
+                        Stretch="Uniform"
+                        AlignmentX="Center"
+                        AlignmentY="Center"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#181735"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0f0f2d"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border  Width="90"
+                            Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+        </Grid>
+    
+    
+    </Grid>
+</Window>

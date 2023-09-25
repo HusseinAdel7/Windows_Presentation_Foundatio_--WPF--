@@ -1,0 +1,331 @@
+﻿<Window x:Class="NoteLock.RegisterationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteLock"
+        mc:Ignorable="d"
+        Title="RegisterationPage" Height="520" Width="900"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#181735">
+    <Window.Resources>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="border"
+                            BorderBrush="#133434"
+                            BorderThickness="2"
+                                
+
+                            CornerRadius="{StaticResource PasswordBoxCornerRadius}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <CornerRadius x:Key="PasswordBoxCornerRadius" TopLeft="10" TopRight="10" BottomLeft="10" BottomRight="10" />
+    </Window.Resources>
+
+
+    <Grid>
+        
+
+        <!--Laying Out-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+        
+        
+        
+        <!--The Header Grid-->
+        <Grid Background="#0f0f2d" Grid.ColumnSpan="3" MouseDown="Grid_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Label Content="NoteLock"
+                       Foreground="Gray"
+                       FontSize="23"
+                       FontWeight="SemiBold"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="—"
+                            Background="Transparent"
+                            Foreground="white"
+                            BorderThickness="0"
+                            FontSize="22"
+                            FontWeight="bold"
+                            Margin="0 0 13 0"
+                            Click="ButtonMinimize_Click"/>
+
+                    <Button Width="30" 
+                            Height="30" 
+                            Content="❌"
+                            Background="Transparent"
+                            Foreground="Red"
+                            BorderThickness="0"
+                            FontSize="20"
+                            Click="ButtonClose_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        
+        
+        <!--The Left Side Grid-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="100 -200 10 10"
+                       Content="Sing In"
+                       Foreground="white"
+                       FontSize="43"
+                       FontWeight="SemiBold" Height="69"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="30 0 10 10"
+                       Content="If You Already Have an Account "
+                       Foreground="white"
+                       FontSize="24"
+                       FontWeight="SemiBold" Height="69"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="30 60 10 10"
+                        Content="You Can Sgin In Dirictly"
+                        Foreground="white"
+                        FontSize="24"
+                        FontWeight="SemiBold" Height="69"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Login"
+              Foreground="White"
+              FontSize="25"
+                        Margin="130 250 10 10"
+              Click="Loginbtn"
+              FontWeight="Medium" Height="108">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#FE6584"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FE4C70"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120"
+                          Height="39"
+                          CornerRadius="13"
+                          Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+
+                            </Border>
+
+                        </ControlTemplate>
+                    </Button.Template>
+
+
+                </Button>
+            </StackPanel>
+        </Grid>
+
+
+
+        <!--The Right Side Grid-->
+        <Grid Grid.Row="2" Grid.Column="2" Background="white">
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="130 -380 10 10"
+                        Content="Sing Up"
+                        Foreground="#121432"
+                        FontSize="43"
+                        FontWeight="Bold" Height="70"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Margin="40 -260 10 10"
+                        Content="Full Name"
+                        Foreground="#2E1810"
+                        FontSize="18"
+                        FontWeight="Bold" Height="32"/>
+                <TextBox Width="340"   
+                         x:Name="FullName"
+                         Height="34"
+                         FontSize="14"
+                         FontWeight="SemiBold"
+                         Foreground="#14011E"
+                         BorderThickness="2"
+                         BorderBrush="#133434"
+                         Margin="-100 -192 10 10"
+                          Style="{StaticResource RoundedTextBoxStyle}" TextChanged="FullName_TextChanged" 
+                         
+                         
+                         />
+            </StackPanel>
+            <Label
+                Content="Username"
+                Foreground="#2E1810"
+                FontSize="18"
+                FontWeight="Bold" Margin="40,154,305,294"/>
+            <TextBox Margin="47,186,65,259"
+                     Height="34"
+                     x:Name="Username"
+                     FontSize="14"
+                     FontWeight="SemiBold"
+                     Foreground="#14011E"
+                     BorderThickness="2"
+                     BorderBrush="#133434"
+                      Style="{StaticResource RoundedTextBoxStyle}" TextChanged="Username_TextChanged" />
+            <Label
+                Content="Email"
+                Foreground="#2E1810"
+                FontSize="18"
+                FontWeight="Bold" Margin="40,220,333,228"/>
+            <TextBox Margin="47,251,65,195"
+                     FontSize="14"
+                     Height="34"
+                     x:Name="Email"
+                     FontWeight="SemiBold"
+                     Foreground="#14011E"
+                     BorderThickness="2"
+                     BorderBrush="#133434"
+                      Style="{StaticResource RoundedTextBoxStyle}" TextChanged="Email_TextChanged" />
+            <Label
+                Content="Password"
+                Foreground="#2E1810"
+                FontSize="18"
+                FontWeight="Bold" Margin="41,284,305,164"/>
+            <PasswordBox Margin="47,315,65,131"
+                         PasswordChanged="PasswordBox_PasswordChanged"
+                         x:Name="Password"
+                         Height="34"
+                         BorderBrush="#133434"
+                         PasswordChar="*"
+                         Style="{StaticResource PasswordBoxStyle}" 
+              />
+            <Label
+                Content=" Confirm Password"
+                Foreground="#2E1810"
+                FontSize="18"
+                 Height="34"
+                FontWeight="Bold" Margin="33,346,193,100"/>
+            <PasswordBox Margin="47,378,65,68"
+                         Height="34"
+                         PasswordChanged="PasswordBox_PasswordChangedcon"
+                         x:Name="PasswordConfirm"
+                         BorderBrush="#133434"
+                         PasswordChar="*"
+                         Style="{StaticResource PasswordBoxStyle}" 
+                          />
+            <Button Content="Sign Up"
+                Foreground="White"
+                FontSize="25"
+                FontWeight="Medium" Margin="152,413,178,-3" Click="SignUpbtn">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FE6584"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FE4C70"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="120"
+                            Height="39"
+                            CornerRadius="13"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Button.Template>
+
+
+            </Button>
+            <Label Content="" 
+                   HorizontalAlignment="Left" 
+                   Margin="212,91,0,0" 
+                   VerticalAlignment="Top" 
+                   Width="173"
+                   Foreground="Red"
+                   FontSize="14"
+                   x:Name="FullNameError"/>
+            <Label Content="" 
+                   HorizontalAlignment="Left" 
+                   Margin="212,160,0,0" 
+                   VerticalAlignment="Top" 
+                   Foreground="Red"
+                   FontSize="14"
+                   Width="173"
+                   x:Name="UsernameError"/>
+            <Label Content="" 
+                HorizontalAlignment="Left" 
+                Margin="212,223,0,0" 
+                Foreground="Red"
+                FontSize="14"
+                VerticalAlignment="Top" 
+                Width="173"
+                x:Name="EmailError"/>
+            <Label Content="" 
+                HorizontalAlignment="Left" 
+                Margin="212,289,0,0" 
+                VerticalAlignment="Top" 
+                Width="173"
+                Foreground="Red"
+                FontSize="14"
+                x:Name="PasswordError"/>
+            <Label Content="" 
+                HorizontalAlignment="Left" 
+                Margin="212,352,0,0" 
+                VerticalAlignment="Top" 
+                Width="173"
+                Foreground="Red"
+                FontSize="14"
+                x:Name="PasswordConfirmError"/>
+        </Grid>
+        
+        
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+﻿<Application x:Class="NoteLock.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NoteLock"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <CornerRadius x:Key="PasswordBoxCornerRadius" TopLeft="10" TopRight="10" BottomLeft="10" BottomRight="10" />
+
+    </Application.Resources>
+</Application>
